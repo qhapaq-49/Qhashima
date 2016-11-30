@@ -286,6 +286,9 @@ namespace Qhashima
                                 }
                                 else
                                 {
+                                    // fail-high、fail-low対応
+                                    hoge = hoge.Replace("↑", "").Replace("↓", "");
+
                                     int t;
                                     if (!int.TryParse(hoge, out t)) { value = 0;  continue; }
                                     value = int.Parse(hoge);
