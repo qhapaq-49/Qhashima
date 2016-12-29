@@ -235,9 +235,13 @@ namespace Qhashima
                                 }
                                 else
                                 {
+                                    // fail-high、fail-low対応
+                                    string hoge = valueline.Substring(1, valueline.Length - 1);
+                                    hoge = hoge.Replace("++", "").Replace("--", "");
+
                                     int t;
-                                    if(!int.TryParse(valueline.Substring(1, valueline.Length - 1), out t)) { continue; }
-                                    value = int.Parse(valueline.Substring(1, valueline.Length - 1));
+                                    if(!int.TryParse(hoge, out t)) { continue; }
+                                    value = int.Parse(hoge);
                                 }
                             }
                         }
@@ -286,6 +290,9 @@ namespace Qhashima
                                 }
                                 else
                                 {
+                                    // fail-high、fail-low対応
+                                    hoge = hoge.Replace("↑", "").Replace("↓", "");
+
                                     int t;
                                     if (!int.TryParse(hoge, out t)) { value = 0;  continue; }
                                     value = int.Parse(hoge);
